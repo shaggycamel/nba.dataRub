@@ -1,4 +1,12 @@
+#' Create a database connection object
+#'
+#' @param connection_string The name of the database to connect to. There are only two options: "postgres" or "cockroach".
+#'
+#' @return A DBI database object
 #' @export
+#'
+#' @examples
+#' dh_createCon(connection_string = "cockroach")
 dh_createCon <- function(connection_string){
 
   DBI::dbConnect(
