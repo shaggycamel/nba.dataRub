@@ -2,7 +2,7 @@ Package: nba.pkg.oli
 Title: Handy Functions to Assist Oliver With NBA Analysis
 Version: 0.0.0.9000
 Authors@R: 
-    person("Oliver", "Eaton", role = c("aut", "cre"))
+    person("Oliver", "Eaton", email = "eat_fred@proton.me", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
