@@ -1,3 +1,4 @@
+#' @export
 dh_createCon <- function(connection_string){
 
   DBI::dbConnect(

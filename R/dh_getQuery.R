@@ -1,3 +1,4 @@
+#' @export
 dh_getQuery <- function(connection, query, glue_params=NULL){
 
   if(!dir.exists(here::here("queries")) && !stringr::str_detect(query, ".sql$"))
