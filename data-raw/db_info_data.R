@@ -26,5 +26,3 @@ db_info_data <- list(
 )
 
 usethis::use_data(db_info_data, internal = TRUE)
-
-
