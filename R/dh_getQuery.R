@@ -12,8 +12,8 @@ dh_getQuery <- function(connection, query, glue_params=NULL){
   if(Sys.getenv("HOME") == here::here())
     stop("To use this function, you must be working within an R-project (ie .Rproj file).")
 
-  if(!dir.exists(here::here("queries")) && stringr::str_detect(query, ".sql$"))
-    stop("Queries sourced from files must be stored in the \"queries\" folder located in the project base directory.")
+  if(!dir.exists(here::here("data")) && stringr::str_detect(query, ".sql$"))
+    stop("Queries sourced from files must be stored in the \"data\" folder located in the project base directory.")
 
   query <- if(!stringr::str_detect(query, ".sql$")) glue::glue(query)
     else glue::glue(readr::read_file(here::here("queries", query)))
