@@ -16,11 +16,14 @@ dh_getQuery <- function(connection, query, glue_params=NULL){
     stop("Queries sourced from files must be stored in the \"data\" folder located in the project base directory.")
 
   query <- if(!stringr::str_detect(query, ".sql$")) glue::glue(query)
-    else glue::glue(readr::read_file(here::here("queries", query)))
+    else glue::glue(readr::read_file(here::here("data", query)))
 
   connection |>
     DBI::dbGetQuery(query) |>
     tibble::as_tibble() |>
-    dplyr::mutate(dplyr::across(where(~ class(.x) == "integer64"), ~ as.integer(.x)))
+    (\(df){
+      c_typ <- purrr::keep(purrr::map(df, class), \(x) "integer64" %in% x)
+      dplyr::mutate(df, dplyr::across(names(c_typ), \(x) as.integer(x)))
+    })()
 
 }
