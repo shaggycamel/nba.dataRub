@@ -2,3 +2,4 @@
 
 export(dh_createCon)
 export(dh_getQuery)
+export(dh_ingestData)
